@@ -112,9 +112,9 @@ public class EmphasisControlTriangle extends Triangle {
     double mousePosX;
     double mousePosY;
 
-    public void updateHandlePosition(final double sceneMousePosX, final double sceneMousePosY, final double scale, final boolean mouseClicked, final GraphicsContext gc) {
-        mousePosX = (sceneMousePosX) / scale - PADDING;
-        mousePosY = (sceneMousePosY) / scale - PADDING;
+    public void updateHandlePosition(final double sceneMousePosX, final double sceneMousePosY, final double scale, final double xTranslate, final double yTranslate, final boolean mouseClicked, final GraphicsContext gc) {
+        mousePosX = (sceneMousePosX) / scale - xTranslate;
+        mousePosY = (sceneMousePosY) / scale - yTranslate;
 
         // compute handle position
         if (contains(mousePosX, (EMPHASIS_TRIANGLE_HEIGHT - mousePosY))) {
