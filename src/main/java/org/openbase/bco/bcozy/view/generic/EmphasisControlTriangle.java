@@ -257,15 +257,15 @@ public class EmphasisControlTriangle extends Triangle {
     }
 
     private void updateEmphasisCategory() {
-        if (securityProperty.get() > economyProperty.get() && securityProperty.get() > comfortProperty.get()) {
+        if (securityProperty.get() >= economyProperty.get() && securityProperty.get() >= comfortProperty.get()) {
             primaryEmphasisCategoryProperty.set(Category.SECURITY);
             emphasisColor = Color.hsb(SECURITY_HUE, SATURATION, BRIGHTNESS);
-        } else if (comfortProperty.get() > economyProperty.get() && comfortProperty.get() > securityProperty.get()) {
-            primaryEmphasisCategoryProperty.set(Category.COMFORT);
-            emphasisColor = Color.hsb(COMFORT_HUE, SATURATION, BRIGHTNESS);
-        } else if (economyProperty.get() > comfortProperty.get() && economyProperty.get() > securityProperty.get()) {
+        } else if (economyProperty.get() >= comfortProperty.get() && economyProperty.get() >= securityProperty.get()) {
             primaryEmphasisCategoryProperty.set(Category.ECONOMY);
             emphasisColor = Color.hsb(ECONOMY_HUE, SATURATION, BRIGHTNESS);
+        } else if (comfortProperty.get() >= economyProperty.get() && comfortProperty.get() >= securityProperty.get()) {
+            primaryEmphasisCategoryProperty.set(Category.COMFORT);
+            emphasisColor = Color.hsb(COMFORT_HUE, SATURATION, BRIGHTNESS);
         } else {
             primaryEmphasisCategoryProperty.set(Category.UNKNOWN);
             // error
