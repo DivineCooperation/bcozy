@@ -2,11 +2,10 @@ package org.openbase.bco.bcozy.view.generic;
 
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIcon;
 import javafx.application.Platform;
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
@@ -14,7 +13,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.transform.Affine;
-import org.openbase.jul.iface.provider.LabelProvider;
 import org.openbase.jul.processing.StringProcessor;
 import org.openbase.jul.visual.javafx.geometry.svg.SVGGlyphIcon;
 import org.openbase.jul.visual.javafx.iface.DynamicPane;
@@ -214,6 +212,12 @@ public class EmphasisControlTrianglePane extends BorderPane implements DynamicPa
 
     @Override
     public void updateDynamicContent() {
+        gc.clearRect(
+                -EmphasisControlTriangle.EMPHASIS_TRIANGLE_OUTER_LINE_STROKE,
+                -EmphasisControlTriangle.EMPHASIS_TRIANGLE_OUTER_LINE_STROKE,
+                canvas.getWidth()+ EmphasisControlTriangle.EMPHASIS_TRIANGLE_OUTER_LINE_STROKE,
+                canvas.getHeight()+EmphasisControlTriangle.EMPHASIS_TRIANGLE_OUTER_LINE_STROKE
+        );
 
         scale = Math.min(canvas.getWidth(), canvas.getHeight()) / (EMPHASIS_TRIANGLE_OUTER_LINE + EmphasisControlTriangle.PADDING * 2);
 //        System.out.println("canvas.getWidth(): " + canvas.getWidth());
